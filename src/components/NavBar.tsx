@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Buttons = styled.button`
@@ -7,14 +7,15 @@ const Buttons = styled.button`
   background: blue;
   color: white;
   margin-right: 7px;
-  font-family: Nunito;
   font-size: 0%.7;
   border-radius: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
   transition: ease all 0.9s;
+  font-family: 'Nunito';
+  font-weight: bold;
   cursor: pointer;
 
   &:hover {
@@ -35,14 +36,21 @@ function NavBar() {
           alignItems: 'center',
           background: 'black',
           padding: '0px',
+          fontFamily: 'Nunito',
         }}
       >
         {/* <h2 style={{ color: 'yellow' }}>NAVBAR</h2> */}
 
         <h2 style={{ color: 'white' }}>ChatApp</h2>
         <h4 style={{ color: 'orange' }}>logged in as Charles</h4>
-        <div>
-          <Buttons>Login</Buttons>
+        <div
+          style={{
+            display: 'flex',
+
+            fontFamily: 'Nunito',
+          }}
+        >
+          <Buttons type="submit">Login</Buttons>
           <Buttons>Register</Buttons>
         </div>
       </div>
