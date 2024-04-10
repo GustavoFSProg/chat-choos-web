@@ -23,22 +23,26 @@ const Buttons = styled.button`
     color: yellow;
   }
 `
+const NavbarContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  background: black;
+  padding: 0px;
+  font-family: 'Nunito';
 
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 35px;
+  }
+`
 function NavBar() {
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          justifyContent: 'space-around',
-          flexDirection: 'row',
-          alignItems: 'center',
-          background: 'black',
-          padding: '0px',
-          fontFamily: 'Nunito',
-        }}
-      >
+      <NavbarContainer>
         {/* <h2 style={{ color: 'yellow' }}>NAVBAR</h2> */}
 
         <h2 style={{ color: 'white' }}>ChatApp</h2>
@@ -53,7 +57,7 @@ function NavBar() {
           <Buttons type="submit">Login</Buttons>
           <Buttons>Register</Buttons>
         </div>
-      </div>
+      </NavbarContainer>
     </>
   )
 }
