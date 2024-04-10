@@ -7,21 +7,25 @@ import Login from './pages/Login'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import { Container } from 'react-bootstrap'
 import { Container, ContainerMiddle } from './styled-app'
+import NavBar from './components/NavBar'
 
 function Routers() {
   return (
-    <Container>
-      <ContainerMiddle>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" exact element={<App />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </BrowserRouter>
-      </ContainerMiddle>
-    </Container>
+    <>
+      <NavBar />
+      <Container>
+        <ContainerMiddle>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" exact element={<App />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </BrowserRouter>
+        </ContainerMiddle>
+      </Container>
+    </>
   )
 }
 
