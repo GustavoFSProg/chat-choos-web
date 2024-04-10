@@ -3,19 +3,22 @@ import App from './App'
 import Chat from './pages/Chat'
 import Register from './pages/Register'
 import Login from './pages/Login'
+// import { Container } from 'react-bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import { Container } from 'react-bootstrap'
 
 function Routers() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<App />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    // <Container className="text-secondary">
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<App />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+    // </Container>
   )
 }
 
