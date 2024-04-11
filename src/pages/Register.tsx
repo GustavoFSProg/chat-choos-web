@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../components/NavBar'
+import { AuthContext } from '../Context/AuthContext'
 
 const Form = styled.form`
   display: flex;
@@ -65,6 +66,8 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { updateRegisterInfo, registerInfo } = useContext(AuthContext)
+
   return (
     <>
       <NavBar />
@@ -83,22 +86,22 @@ function Register() {
           <Input
             type="text"
             placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            // value={name}
+            onChange={(e) => updateRegisterInfo({ ...registerInfo, name: e.target.value })}
           />
 
           <Input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // value={email}
+            onChange={(e) => updateRegisterInfo({ ...registerInfo, email: e.target.value })}
           />
 
           <Input
             type="password"
             placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            onChange={(e) => updateRegisterInfo({ ...registerInfo, password: e.target.value })}
           />
 
           <Button>CADASTRAR</Button>
