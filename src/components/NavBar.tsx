@@ -1,4 +1,5 @@
 // import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Buttons = styled.button`
@@ -45,7 +46,11 @@ function NavBar() {
       <NavbarContainer>
         {/* <h2 style={{ color: 'yellow' }}>NAVBAR</h2> */}
 
-        <h2 style={{ color: 'white' }}>ChatApp</h2>
+        <h2>
+          <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
+            ChatApp
+          </Link>
+        </h2>
         <h4 style={{ color: 'orange' }}>logged in as Charles</h4>
         <div
           style={{
@@ -54,8 +59,12 @@ function NavBar() {
             fontFamily: 'Nunito',
           }}
         >
-          <Buttons type="submit">Login</Buttons>
-          <Buttons>Register</Buttons>
+          <Link to="/login">
+            <Buttons type="submit">Login</Buttons>
+          </Link>
+          <Link to="/register">
+            <Buttons>Cadastro</Buttons>
+          </Link>
         </div>
       </NavbarContainer>
     </>

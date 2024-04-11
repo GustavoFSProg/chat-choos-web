@@ -12,19 +12,14 @@ import NavBar from './components/NavBar'
 function Routers() {
   return (
     <>
-      <NavBar />
-      <Container>
-        <ContainerMiddle>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" exact element={<App />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </BrowserRouter>
-        </ContainerMiddle>
-      </Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<App />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

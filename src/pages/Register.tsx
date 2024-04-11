@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import NavBar from '../components/NavBar'
 
 const Form = styled.form`
   display: flex;
@@ -20,7 +22,7 @@ const Input = styled.input`
   align-items: center;
   width: 50%;
   height: 2.3rem;
-  background: yellow;
+  background: #f5f4d5;
   margin-top: 22px;
   padding-left: 14px;
   font-family: 'Nunito';
@@ -34,7 +36,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 52%;
   height: auto;
-  background: blue;
+  background: #6666ff;
   color: white;
   /* margin-right: 7px; */
   font-size: 0%.7;
@@ -51,7 +53,6 @@ const Button = styled.button`
 
   &:hover {
     background: darkblue;
-    color: yellow;
   }
 
   @media screen and (max-width: 800px) {
@@ -66,6 +67,8 @@ function Register() {
 
   return (
     <>
+      <NavBar />
+
       <div
         style={{
           display: 'flex',
@@ -76,7 +79,6 @@ function Register() {
         }}
       >
         <h2>CADATRO DE USUARIO</h2>
-        <Link to="/">HOME</Link>
         <Form>
           <Input
             type="text"
