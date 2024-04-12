@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
@@ -68,6 +68,8 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate()
+
   const {
     updateRegisterInfo,
     setRegisterInfo,
@@ -123,6 +125,8 @@ function Register() {
       setName('')
       setEmail('')
       setPassword('')
+
+      navigate('/')
 
       return alert('Usuário cadastrado com sucesso!!!')
     } catch (error) {

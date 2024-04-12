@@ -1,6 +1,8 @@
 // import { Link } from 'react-router-dom'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { AuthContext } from '../Context/AuthContext'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -41,6 +43,10 @@ const NavbarContainer = styled.div`
   }
 `
 function NavBar() {
+  const { user } = useContext(AuthContext)
+
+  console.log('UserNav', user)
+
   return (
     <>
       <NavbarContainer>
@@ -51,7 +57,7 @@ function NavBar() {
             ChatApp
           </Link>
         </h2>
-        <h4 style={{ color: 'orange' }}>logged in as Charles</h4>
+        <h4 style={{ color: 'orange' }}>logged as {user ? user.login.name : null}</h4>
         <div
           style={{
             display: 'flex',

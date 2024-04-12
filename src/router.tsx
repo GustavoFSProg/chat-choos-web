@@ -22,6 +22,7 @@ function Routers() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/navbar" element={<NavBar />} />
           </Routes>
         </BrowserRouter>
       </AuthContextProvider>

@@ -96,12 +96,12 @@ function Login() {
       console.log('response', response)
 
       if (response) {
-        setUser(data)
+        setUser(response.data)
         console.log('User', response)
 
-        sessionStorage.setItem('token', response.data.token)
-        sessionStorage.setItem('user', response.data.login.id)
-        sessionStorage.setItem('email', response.data.login.email)
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', response.data.login.id)
+        localStorage.setItem('email', response.data.login.email)
 
         navigate('/chat')
 
