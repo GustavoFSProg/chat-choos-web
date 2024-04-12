@@ -82,25 +82,46 @@ function Register() {
 
   async function createUser(event) {
     event.preventDefault()
-    const data = { name, email, password }
+    try {
+      const dados = { name, email, password }
 
-    setIsRegisterLoading(true)
+      if (name === '' || email === '' || password === '') {
+        return alert('Os campos devem todos estarem preenchidos!')
+      }
 
-    const response = await api.post('/create-user', data)
+      const { data } = await api.get(`/get-by-email/${email}`)
 
-    setIsRegisterLoading(false)
+      if (data) {
+        return alert('Email já cadastrado!!')
+      }
 
-    if (response) {
-      // updateRegisterInfo(data)
+      console.log('Data', data)
 
-      localStorage.setItem('User', email)
+      // if (data.email === email) {
+      //   return alert('ERROR, Email já cadastrado!!')
+      // }
 
-      // registerUser(data)
+      setIsRegisterLoading(true)
 
-      setUser(data)
-      console.log('User', user)
+      const response = await api.post('/create-user', dados)
 
-      alert('Usuário cadastrado com sucesso!!!')
+      setIsRegisterLoading(false)
+
+      if (response) {
+        // updateRegisterInfo(data)
+
+        localStorage.setItem('User', email)
+
+        // registerUser(data)
+
+        setUser(dados)
+        console.log('User', user)
+
+        // return alert(response.error)
+      }
+      return alert('Usuário cadastrado com sucesso!!!')
+    } catch (error) {
+      return alert(error)
     }
   }
 
