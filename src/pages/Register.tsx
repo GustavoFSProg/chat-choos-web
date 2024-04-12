@@ -92,9 +92,8 @@ function Register() {
       // registerUser(data)
 
       setUser(data)
+      console.log('User', user)
     }
-
-    console.log('User', user)
   }
 
   return (

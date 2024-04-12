@@ -12,7 +12,7 @@ function Login() {
 
       <div>
         <h2>Login</h2>
-        {user.email}
+        {/* {user.email} */}
         <Link to="/">HOME</Link>
       </div>
     </>
