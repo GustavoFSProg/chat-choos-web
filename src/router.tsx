@@ -8,16 +8,18 @@ import Login from './pages/Login'
 // import { Container } from 'react-bootstrap'
 import { Container, ContainerMiddle } from './styled-app'
 import NavBar from './components/NavBar'
-import { AuthContextProvider } from './Context/AuthContext'
+import { AuthContext, AuthContextProvider } from './Context/AuthContext'
+import { useContext } from 'react'
 
 function Routers() {
+  const { user } = useContext(AuthContext)
   return (
     <>
       <AuthContextProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" exact element={<App />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat" element={user ? <Chat /> : null} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Routes>

@@ -110,7 +110,7 @@ function Register() {
       if (response) {
         // updateRegisterInfo(data)
 
-        localStorage.setItem('User', email)
+        sessionStorage.setItem('User', email)
 
         // registerUser(data)
 
