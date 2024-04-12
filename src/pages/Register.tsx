@@ -99,6 +99,8 @@ function Register() {
 
       setUser(data)
       console.log('User', user)
+
+      alert('Usuário cadastrado com sucesso!!!')
     }
   }
 
