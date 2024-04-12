@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
 import api from '../api'
+import { Container, ContainerMiddle } from '../styled-app'
 
 const Form = styled.form`
   display: flex;
@@ -99,43 +100,36 @@ function Register() {
   return (
     <>
       <NavBar />
+      <Container>
+        <ContainerMiddle>
+          <h2>CADATRO DE USUARIO</h2>
+          <Form onSubmit={createUser}>
+            <Input
+              type="text"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
 
-      <div
-        style={{
-          display: 'flex',
-          marginTop: '50px',
-          width: '100%',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <h2>CADATRO DE USUARIO</h2>
-        <Form onSubmit={createUser}>
-          <Input
-            type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+            <Input
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <Input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <Button type="submit">{isRegisterLoading ? 'Loading' : 'CADASTRAR'}</Button>
-          {registerError?.error && alert(registerError?.message)}
-        </Form>
-      </div>
+            <Button type="submit">{isRegisterLoading ? 'Loading' : 'CADASTRAR'}</Button>
+            {registerError?.error && alert(registerError?.message)}
+          </Form>
+        </ContainerMiddle>
+      </Container>
     </>
   )
 }
