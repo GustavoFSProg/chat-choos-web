@@ -38,6 +38,14 @@ export const AuthContextProvider = ({ children }) => {
     setUser(response)
   }, [])
 
+  function logoutUser() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('email')
+
+    setUser(null)
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -49,6 +57,7 @@ export const AuthContextProvider = ({ children }) => {
         updateRegisterInfo,
         setUser,
         setIsRegisterLoading,
+        logoutUser,
       }}
     >
       {children}

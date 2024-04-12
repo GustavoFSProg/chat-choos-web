@@ -43,7 +43,7 @@ const NavbarContainer = styled.div`
   }
 `
 function NavBar() {
-  const { user } = useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext)
 
   console.log('UserNav', user)
 
@@ -65,6 +65,10 @@ function NavBar() {
             fontFamily: 'Nunito',
           }}
         >
+          <Buttons type="button" onClick={logoutUser}>
+            Logout
+          </Buttons>
+
           <Link to="/login">
             <Buttons type="submit">Login</Buttons>
           </Link>
