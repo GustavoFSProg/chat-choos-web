@@ -77,13 +77,18 @@ function Register() {
     registerUser,
     setUser,
     user,
+    setIsRegisterLoading,
   } = useContext(AuthContext)
 
   async function createUser(event) {
     event.preventDefault()
     const data = { name, email, password }
 
+    setIsRegisterLoading(true)
+
     const response = await api.post('/create-user', data)
+
+    setIsRegisterLoading(false)
 
     if (response) {
       // updateRegisterInfo(data)

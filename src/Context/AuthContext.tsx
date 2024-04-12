@@ -48,6 +48,7 @@ export const AuthContextProvider = ({ children }) => {
         isRegisterLoading,
         updateRegisterInfo,
         setUser,
+        setIsRegisterLoading,
       }}
     >
       {children}
