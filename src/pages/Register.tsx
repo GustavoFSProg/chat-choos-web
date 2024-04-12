@@ -119,6 +119,11 @@ function Register() {
 
         // return alert(response.error)
       }
+
+      setName('')
+      setEmail('')
+      setPassword('')
+
       return alert('Usuário cadastrado com sucesso!!!')
     } catch (error) {
       return alert(error)
