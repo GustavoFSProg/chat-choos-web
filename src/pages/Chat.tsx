@@ -9,9 +9,7 @@ function Chat() {
 
       <Container>
         <ContainerMiddle>
-          <h2>Login</h2>
           <h2>CHAT</h2>
-          <Link to="/">HOME</Link>
         </ContainerMiddle>
       </Container>
     </>

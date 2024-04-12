@@ -19,7 +19,7 @@ function Routers() {
         <BrowserRouter>
           <Routes>
             <Route path="/" exact element={<App />} />
-            <Route path="/chat" element={user ? <Chat /> : null} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Routes>

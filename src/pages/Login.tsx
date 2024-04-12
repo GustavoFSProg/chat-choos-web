@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
@@ -65,7 +65,9 @@ const Button = styled.button`
 
 function Login() {
   const [email, setEmail] = useState('bruna@gmail.com')
-  const [password, setPassword] = useState('1234')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const {
     updateRegisterInfo,
@@ -84,47 +86,28 @@ function Login() {
     try {
       const data = { email, password }
 
-      // if (name === '' || email === '' || password === '') {
-      //   return alert('Os campos devem todos estarem preenchidos!')
-      // }
-
-      // const { data } = await api.get(`/get-by-email/${email}`)
-
-      // if (data) {
-      //   return alert('Email já cadastrado!!')
-      // }
-
-      console.log('Data', data)
-
-      // if (data.email === email) {
-      //   return alert('ERROR, Email já cadastrado!!')
-      // }
-
-      // setIsRegisterLoading(true)
-
       const response = await api.post('/login', data)
 
-      // setIsRegisterLoading(false)
-
-      if (response) {
-        // updateRegisterInfo(data)
-
-        localStorage.setItem('User', email)
-
-        // registerUser(data)
-
-        setUser(data)
-        console.log('User', user)
-
-        // return alert(response.error)
+      if (response.data.errors) {
+        alert('Email ou senha inválidos!!')
+        return null
       }
-
-      sessionStorage.setItem('token', response.data.token)
-      sessionStorage.setItem('user', response.data.login.id)
-      sessionStorage.setItem('email', response.data.login.email)
 
       console.log('response', response)
 
+      if (response) {
+        setUser(data)
+        console.log('User', response)
+
+        sessionStorage.setItem('token', response.data.token)
+        sessionStorage.setItem('user', response.data.login.id)
+        sessionStorage.setItem('email', response.data.login.email)
+
+        navigate('/chat')
+
+        console.log('response', response)
+        return alert('Login efetuado com sucesso!!!')
+      }
       return alert('Login efetuado com sucesso!!!')
     } catch (error) {
       return alert(error)
