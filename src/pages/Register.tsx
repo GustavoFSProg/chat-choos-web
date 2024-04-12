@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
+import api from '../api'
 
 const Form = styled.form`
   display: flex;
@@ -66,7 +67,35 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { updateRegisterInfo, registerInfo } = useContext(AuthContext)
+  const {
+    updateRegisterInfo,
+    setRegisterInfo,
+    registerInfo,
+    registerError,
+    isRegisterLoading,
+    registerUser,
+    setUser,
+    user,
+  } = useContext(AuthContext)
+
+  async function createUser(event) {
+    event.preventDefault()
+    const data = { name, email, password }
+
+    const response = await api.post('/create-user', data)
+
+    if (response) {
+      // updateRegisterInfo(data)
+
+      localStorage.setItem('User', email)
+
+      // registerUser(data)
+
+      setUser(data)
+    }
+
+    console.log('User', user)
+  }
 
   return (
     <>
@@ -82,29 +111,30 @@ function Register() {
         }}
       >
         <h2>CADATRO DE USUARIO</h2>
-        <Form>
+        <Form onSubmit={createUser}>
           <Input
             type="text"
             placeholder="Nome"
-            // value={name}
-            onChange={(e) => updateRegisterInfo({ ...registerInfo, name: e.target.value })}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <Input
             type="email"
             placeholder="Email"
-            // value={email}
-            onChange={(e) => updateRegisterInfo({ ...registerInfo, email: e.target.value })}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <Input
             type="password"
             placeholder="Senha"
-            // value={password}
-            onChange={(e) => updateRegisterInfo({ ...registerInfo, password: e.target.value })}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button>CADASTRAR</Button>
+          <Button type="submit">{isRegisterLoading ? 'Loading' : 'CADASTRAR'}</Button>
+          {registerError?.error && alert(registerError?.message)}
         </Form>
       </div>
     </>
