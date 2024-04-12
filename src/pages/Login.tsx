@@ -4,7 +4,6 @@ import { useContext } from 'react'
 import { Container, ContainerMiddle } from '../styled-app'
 
 import { AuthContext } from '../Context/AuthContext'
-import { Container, ContainerMiddle } from '../styled-app'
 
 function Login() {
   const { user } = useContext(AuthContext)
