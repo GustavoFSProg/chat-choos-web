@@ -11,6 +11,7 @@ import NavBar from './components/NavBar'
 import { AuthContext, AuthContextProvider } from './Context/AuthContext'
 import { useContext } from 'react'
 import ChatWindow from './CahtWindow'
+import MainChat from './pages/MainChat'
 
 function Routers() {
   const { user } = useContext(AuthContext)
@@ -20,7 +21,7 @@ function Routers() {
         <BrowserRouter>
           <Routes>
             <Route path="/" exact element={<App />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat" element={<MainChat />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/navbar" element={<NavBar />} />

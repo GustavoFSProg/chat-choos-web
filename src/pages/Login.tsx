@@ -103,7 +103,7 @@ function Login() {
         localStorage.setItem('user', response.data.login.id)
         localStorage.setItem('email', response.data.login.email)
 
-        navigate('/chat')
+        navigate('/chat-box')
 
         console.log('response', response)
         return alert('Login efetuado com sucesso!!!')

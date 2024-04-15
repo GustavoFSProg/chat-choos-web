@@ -3,6 +3,10 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { AuthContext } from '../Context/AuthContext'
+import App from '../App'
+import Login from '../pages/Login'
+import MainChat from '../pages/MainChat'
+import Sidebar from './Sidebar'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -28,15 +32,15 @@ const Buttons = styled.button`
 `
 const MessageContainer = styled.div`
   display: flex;
-  width: 97%;
+  width: 50%;
   height: 89vh;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   background: #000000;
   padding: 0px;
   font-family: 'Nunito';
-  margin-left: 2px;
+  /* margin-left: 222px; */
   margin-top: 11px;
 
   @media screen and (max-width: 800px) {
@@ -48,22 +52,38 @@ const MessageContainer = styled.div`
 function MessageBox() {
   const { user, logoutUser } = useContext(AuthContext)
   return (
-    <>
-      <MessageContainer>
-        <h3 style={{ color: 'white' }}>{user.login.name}</h3>
-        <h2>
-          <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
-            MESSAGE BOX
-          </Link>
-        </h2>
+    // <div style={{ display: 'flex', width: '100vw' }}>
+    <div
+    // style={{
+    //   display: 'flex',
+    //   width: '100%',
+    //   height: '70vh',
+    //   alignItems: 'center',
+    //   marginLeft: '120px',
+    //   justifyContent: 'center',
+    //   // flexDirection: 'column',
+    // }}
+    >
+      <Sidebar />
+      {/* <MessageContainer>
         <div
           style={{
-            display: 'flex',
-            fontFamily: 'Nunito',
+            width: '50rem',
+            height: '70vh',
+            alignItems: 'center',
+            marginLeft: '120px',
+            justifyContent: 'center',
           }}
-        ></div>
-      </MessageContainer>
-    </>
+        >
+          <h3 style={{ color: 'white' }}>{user.login.name}</h3>
+          <h2>
+            <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
+              MESSAGE BOX
+            </Link>
+          </h2>
+        </div>
+      </MessageContainer> */}
+    </div>
   )
 }
 

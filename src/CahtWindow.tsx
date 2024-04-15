@@ -9,7 +9,7 @@ import { Container, ContainerMiddle } from './styled-app'
 import { useContext } from 'react'
 
 function ChatWindow() {
-  const Context = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   // const { user } = Context
 
@@ -19,9 +19,24 @@ function ChatWindow() {
     <div style={{ overflow: 'hidden' }}>
       <NavBar />
       <Container>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <ContainerMiddle>
-          <MessageBox />
+          {user ? (
+            <MessageBox />
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                width: '100vw',
+                height: '90vh',
+                color: 'white',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <h1>FAÇA O LOGIN!</h1>
+            </div>
+          )}
         </ContainerMiddle>
       </Container>
     </div>

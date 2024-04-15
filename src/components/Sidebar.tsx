@@ -29,15 +29,18 @@ const Buttons = styled.button`
 `
 const SidebarContainer = styled.div`
   display: flex;
-  width: 40%;
+  width: 26rem;
   height: 89vh;
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
   background: #1a1a1a;
+  /* background: pink; */
   padding: 0px;
   font-family: 'Nunito';
-  margin-top: -79px;
+  margin-top: 9px;
+  /* margin-right: 500px; */
+  margin-left: -125px;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -59,8 +62,9 @@ const BoxContainer = styled.div`
   background: #404040;
   padding-bottom: 7px;
   color: #bfbfbf;
+  margin-left: -7px;
 
-  /* margin-top: -79px; */
+  margin-top: 2px;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -68,6 +72,7 @@ const BoxContainer = styled.div`
     padding-bottom: 35px;
   }
 `
+
 const AvatarNameContainer = styled.div`
   display: flex;
   width: 100%;
@@ -84,6 +89,7 @@ function Sidebar() {
   return (
     <>
       <SidebarContainer>
+        {/* {user ? (): () } */}
         <BoxContainer>
           <AvatarNameContainer>
             <img src={avatar} width="57" height="57" />
