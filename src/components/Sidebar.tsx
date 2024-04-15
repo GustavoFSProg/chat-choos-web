@@ -41,6 +41,7 @@ const SidebarContainer = styled.div`
   margin-top: 9px;
   /* margin-right: 500px; */
   margin-left: -125px;
+  overflow-y: scroll;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -84,6 +85,18 @@ const AvatarNameContainer = styled.div`
   font-family: 'Nunito';
   margin-left: -70px;
 `
+
+// main::-webkit-scrollbar {
+//   width: 0.25rem;
+// }
+
+// main::-webkit-scrollbar-track {
+//   background: #1e1e24;
+// }
+
+// main::-webkit-scrollbar-thumb {
+//   background: #6649b8;
+// }
 function Sidebar() {
   // const { user, logoutUser } = useContext(AuthContext)
   return (
