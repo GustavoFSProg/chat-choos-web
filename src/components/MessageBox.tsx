@@ -37,7 +37,7 @@ const MessageContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  background: #000000;
+  background: #000000;ewq7wq7qwqe7qqq
   padding: 0px;
   font-family: 'Nunito';
   /* margin-left: 222px; */
@@ -54,35 +54,38 @@ function MessageBox() {
   return (
     // <div style={{ display: 'flex', width: '100vw' }}>
     <div
-    // style={{
-    //   display: 'flex',
-    //   width: '100%',
-    //   height: '70vh',
-    //   alignItems: 'center',
-    //   marginLeft: '120px',
-    //   justifyContent: 'center',
-    //   // flexDirection: 'column',
-    // }}
+      style={{
+        display: 'flex',
+        // width: '100%',
+        // height: '70vh',
+        // alignItems: 'center',
+        // marginLeft: '120px',
+        // justifyContent: 'center',
+        // flexDirection: 'column',
+      }}
     >
       <Sidebar />
-      {/* <MessageContainer>
-        <div
-          style={{
-            width: '50rem',
-            height: '70vh',
-            alignItems: 'center',
-            marginLeft: '120px',
-            justifyContent: 'center',
-          }}
-        >
-          <h3 style={{ color: 'white' }}>{user.login.name}</h3>
-          <h2>
-            <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
-              MESSAGE BOX
-            </Link>
-          </h2>
-        </div>
-      </MessageContainer> */}
+      {/* <MessageContainer> */}
+      <div
+        style={{
+          display: 'flex',
+          width: '53rem',
+          height: '91vh',
+          alignItems: 'center',
+          marginTop: '11px',
+          // marginLeft: '120px',
+          justifyContent: 'center',
+          background: '#000000',
+        }}
+      >
+        <h3 style={{ color: 'white' }}>{user.login.name}</h3>
+        <h2>
+          <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
+            MESSAGE BOX
+          </Link>
+        </h2>
+      </div>
+      {/* </MessageContainer> */}
     </div>
   )
 }

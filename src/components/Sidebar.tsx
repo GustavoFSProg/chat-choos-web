@@ -30,7 +30,7 @@ const Buttons = styled.button`
 const SidebarContainer = styled.div`
   display: flex;
   width: 26rem;
-  height: 89vh;
+  height: 91vh;
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
