@@ -76,6 +76,7 @@ function MessageBox() {
           // marginLeft: '120px',
           justifyContent: 'center',
           background: '#000000',
+          flexDirection: 'column',
         }}
       >
         <h3 style={{ color: 'white' }}>{user.login.name}</h3>
