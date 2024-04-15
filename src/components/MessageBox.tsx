@@ -33,7 +33,7 @@ const MessageContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  background: orange;
+  background: #000000;
   padding: 0px;
   font-family: 'Nunito';
   margin-left: 2px;
