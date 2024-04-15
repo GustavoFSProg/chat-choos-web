@@ -44,6 +44,8 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem('email')
 
     setUser(null)
+
+    console.log('user', user)
   }
 
   return (

@@ -42,16 +42,11 @@ const NavbarContainer = styled.div`
     padding-bottom: 35px;
   }
 `
-function NavBar() {
+function Sidebar() {
   const { user, logoutUser } = useContext(AuthContext)
-
-  // console.log('UserNav', user)
-
   return (
     <>
       <NavbarContainer>
-        {/* <h2 style={{ color: 'yellow' }}>NAVBAR</h2> */}
-
         <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
             ChatApp
@@ -81,4 +76,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export default Sidebar
