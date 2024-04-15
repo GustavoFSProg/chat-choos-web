@@ -1,5 +1,4 @@
 // import { Link } from 'react-router-dom'
-import ChatWindow from './CahtWindow'
 import { AuthContext } from './Context/AuthContext'
 import MessageBox from './components/MessageBox'
 import NavBar from './components/NavBar'
@@ -9,7 +8,7 @@ import { Container, ContainerMiddle } from './styled-app'
 // import './index.css'
 import { useContext } from 'react'
 
-function App() {
+function ChatWindow() {
   const Context = useContext(AuthContext)
 
   // const { user } = Context
@@ -17,17 +16,16 @@ function App() {
   // console.log(user.name)
 
   return (
-    <div style={{ overflow: 'hidden', color: 'white' }}>
+    <div style={{ overflow: 'hidden' }}>
       <NavBar />
       <Container>
-        {/* <Sidebar /> */}
+        <Sidebar />
         <ContainerMiddle>
-          {/* <MessageBox /> */}
-          <h1>Chat App</h1>
+          <MessageBox />
         </ContainerMiddle>
       </Container>
     </div>
   )
 }
 
-export default App
+export default ChatWindow

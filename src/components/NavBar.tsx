@@ -65,6 +65,9 @@ function NavBar() {
             fontFamily: 'Nunito',
           }}
         >
+          <Link to="/chat-box">
+            <Buttons type="submit">Chat Box</Buttons>
+          </Link>
           <Buttons type="button" onClick={logoutUser}>
             Logout
           </Buttons>

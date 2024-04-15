@@ -10,6 +10,7 @@ import { Container, ContainerMiddle } from './styled-app'
 import NavBar from './components/NavBar'
 import { AuthContext, AuthContextProvider } from './Context/AuthContext'
 import { useContext } from 'react'
+import ChatWindow from './CahtWindow'
 
 function Routers() {
   const { user } = useContext(AuthContext)
@@ -23,6 +24,7 @@ function Routers() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/navbar" element={<NavBar />} />
+            <Route path="/chat-box" element={<ChatWindow />} />
           </Routes>
         </BrowserRouter>
       </AuthContextProvider>
