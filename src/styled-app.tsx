@@ -15,7 +15,7 @@ export const ContainerMiddle = styled.div`
   height: 100vh;
   /* background: pink; */
   font-family: 'Nunito';
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
   /* justify-content: center; */
 `

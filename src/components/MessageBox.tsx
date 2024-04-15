@@ -26,17 +26,18 @@ const Buttons = styled.button`
     color: yellow;
   }
 `
-const SidebarContainer = styled.div`
+const MessageContainer = styled.div`
   display: flex;
-  width: 35%;
+  width: 97%;
   height: 89vh;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  background: green;
+  background: orange;
   padding: 0px;
   font-family: 'Nunito';
-  margin-top: -79px;
+  margin-left: 2px;
+  margin-top: 11px;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -44,26 +45,25 @@ const SidebarContainer = styled.div`
     padding-bottom: 35px;
   }
 `
-function Sidebar() {
+function MessageBox() {
   // const { user, logoutUser } = useContext(AuthContext)
   return (
     <>
-      <SidebarContainer>
+      <MessageContainer>
         <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
-            Sidebar
+            MESSAGE BOX
           </Link>
         </h2>
         <div
           style={{
             display: 'flex',
-
             fontFamily: 'Nunito',
           }}
         ></div>
-      </SidebarContainer>
+      </MessageContainer>
     </>
   )
 }
 
-export default Sidebar
+export default MessageBox

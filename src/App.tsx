@@ -1,6 +1,8 @@
 // import { Link } from 'react-router-dom'
 import { AuthContext } from './Context/AuthContext'
+import MessageBox from './components/MessageBox'
 import NavBar from './components/NavBar'
+import Sidebar from './components/Sidebar'
 import { Container, ContainerMiddle } from './styled-app'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import './index.css'
@@ -17,8 +19,9 @@ function App() {
     <>
       <NavBar />
       <Container>
+        <Sidebar />
         <ContainerMiddle>
-          <h2>APP HOME CHAT</h2>
+          <MessageBox />
           {/* <div>{user.name}</div> */}
         </ContainerMiddle>
       </Container>
