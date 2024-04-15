@@ -31,7 +31,7 @@ const MessageContainer = styled.div`
   width: 97%;
   height: 89vh;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   background: #000000;
   padding: 0px;
@@ -46,10 +46,11 @@ const MessageContainer = styled.div`
   }
 `
 function MessageBox() {
-  // const { user, logoutUser } = useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext)
   return (
     <>
       <MessageContainer>
+        <h3 style={{ color: 'white' }}>{user.login.name}</h3>
         <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
             MESSAGE BOX
