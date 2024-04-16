@@ -51,34 +51,55 @@ function NavBar() {
     <>
       <NavbarContainer>
         {/* <h2 style={{ color: 'yellow' }}>NAVBAR</h2> */}
-
         <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
             ChatApp
           </Link>
         </h2>
-        <h4 style={{ color: 'orange' }}>logged as {user ? user.login.name : null}</h4>
-        <div
-          style={{
-            display: 'flex',
+        {user ? (
+          <h4 style={{ color: 'orange' }}>logged as {user ? user.login.name : null}</h4>
+        ) : (
+          <>
+            <h4 style={{ color: 'orange' }}>No User Logged! {user ? user.login.name : null}</h4>
+          </>
+        )}
 
-            fontFamily: 'Nunito',
-          }}
-        >
-          <Link to="/chat-box">
-            <Buttons type="submit">Chat Box</Buttons>
-          </Link>
-          <Buttons type="button" onClick={logoutUser}>
-            Logout
-          </Buttons>
+        {user && (
+          <div
+            style={{
+              display: 'flex',
 
-          <Link to="/login">
-            <Buttons type="submit">Login</Buttons>
-          </Link>
-          <Link to="/register">
-            <Buttons>Cadastro</Buttons>
-          </Link>
-        </div>
+              fontFamily: 'Nunito',
+            }}
+          >
+            <Link to="/chat-box">
+              <Buttons type="submit">Chat Box</Buttons>
+            </Link>
+            <Buttons type="button" onClick={logoutUser}>
+              Logout
+            </Buttons>
+
+            <Link to="/register">
+              <Buttons>Cadastro</Buttons>
+            </Link>
+          </div>
+        )}
+        {!user && (
+          <div
+            style={{
+              display: 'flex',
+
+              fontFamily: 'Nunito',
+            }}
+          >
+            <Link to="/login">
+              <Buttons type="submit">Login</Buttons>
+            </Link>
+            <Link to="/register">
+              <Buttons>Cadastro</Buttons>
+            </Link>
+          </div>
+        )}
       </NavbarContainer>
     </>
   )

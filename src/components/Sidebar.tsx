@@ -97,6 +97,8 @@ const AvatarNameContainer = styled.div`
 // main::-webkit-scrollbar-thumb {
 //   background: #6649b8;
 // }
+
+// poikmnhgt
 function Sidebar() {
   // const { user, logoutUser } = useContext(AuthContext)
   return (
