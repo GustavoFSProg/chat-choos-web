@@ -1,21 +1,20 @@
 import { useContext, useState } from 'react'
-import { Navbar } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
 import api from '../api'
-import { Container, ContainerMiddle } from '../styled-app'
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: auto;
-  /* background: green; */
   padding-bottom: 10px;
+  margin-top: 145px;
+  /* margin-left: 125px; */
+  /* margin-top: -395px; */
+  /* margin-left: -105px; */
 `
 
 const Input = styled.input`
@@ -23,7 +22,7 @@ const Input = styled.input`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 57%;
   height: 2.3rem;
   background: #f5f4d5;
   margin-top: 22px;
@@ -37,17 +36,14 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  width: 52%;
+  width: 60%;
   height: auto;
   background: #6666ff;
   color: white;
-  /* margin-right: 7px; */
   font-size: 0%.7;
   border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  /* padding-left: 4px;
-  padding-right: 4px; */
   transition: ease all 0.9s;
   font-family: 'Nunito';
   font-weight: bold;
@@ -61,6 +57,23 @@ const Button = styled.button`
   @media screen and (max-width: 800px) {
     width: 90%;
   }
+`
+
+export const Container = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(40, 40, 40);
+  font-family: 'Nunito';
+  align-items: center;
+  justify-content: center;
+`
+export const ContainerMiddle = styled.div`
+  display: flex;
+  width: 80%;
+  height: 100vh;
+  font-family: 'Nunito';
+  flex-direction: row;
 `
 
 function Register() {
@@ -99,10 +112,6 @@ function Register() {
 
       console.log('Data', data)
 
-      // if (data.email === email) {
-      //   return alert('ERROR, Email já cadastrado!!')
-      // }
-
       setIsRegisterLoading(true)
 
       const response = await api.post('/create-user', dados)
@@ -110,16 +119,10 @@ function Register() {
       setIsRegisterLoading(false)
 
       if (response) {
-        // updateRegisterInfo(data)
-
         sessionStorage.setItem('User', email)
-
-        // registerUser(data)
 
         setUser(dados)
         console.log('User', user)
-
-        // return alert(response.error)
       }
 
       setName('')

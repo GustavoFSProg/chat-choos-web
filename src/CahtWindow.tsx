@@ -11,6 +11,12 @@ import { useContext } from 'react'
 function ChatWindow() {
   const { user } = useContext(AuthContext)
 
+  const userEmail = localStorage.getItem('email')
+
+  // if (!user && !userEmail) {
+  //   return alert('Usuário não esta Logado!!')
+  // }
+
   // const { user } = Context
 
   // console.log(user.name)

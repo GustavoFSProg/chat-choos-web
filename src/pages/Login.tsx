@@ -5,17 +5,18 @@ import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 import { AuthContext } from '../Context/AuthContext'
 import api from '../api'
-import { Container, ContainerMiddle } from '../styled-app'
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: auto;
-  /* background: green; */
+  width: 77%;
+  height: 50%;
   padding-bottom: 10px;
+  margin-top: 15px;
+  margin-left: -35px;
+  /* background: orange; */
 `
 
 const Input = styled.input`
@@ -23,7 +24,7 @@ const Input = styled.input`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 57%;
   height: 2.3rem;
   background: #f5f4d5;
   margin-top: 22px;
@@ -37,7 +38,7 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  width: 52%;
+  width: 60%;
   height: auto;
   background: #6666ff;
   color: white;
@@ -63,6 +64,28 @@ const Button = styled.button`
   }
 `
 
+export const Container = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(40, 40, 40);
+  /* flex-direction: column; */
+  font-family: 'Nunito';
+  align-items: center;
+  justify-content: center;
+  /* background: green; */
+  /* margin-top: 220px; */
+`
+export const ContainerMiddle = styled.div`
+  display: flex;
+  width: 80%;
+  height: 100vh;
+  font-family: 'Nunito';
+  flex-direction: row;
+  /* margin-top: 100px; */
+  /* background: pink; */
+`
+
 function Login() {
   const [email, setEmail] = useState('bruna@gmail.com')
   const [password, setPassword] = useState('')
@@ -81,7 +104,7 @@ function Login() {
     setIsRegisterLoading,
   } = useContext(AuthContext)
 
-  async function createUser(event) {
+  async function LoginUser(event) {
     event.preventDefault()
     try {
       const data = { email, password }
@@ -120,7 +143,7 @@ function Login() {
       <Container>
         <ContainerMiddle>
           <h2>LOGIN</h2>
-          <Form onSubmit={createUser}>
+          <Form onSubmit={LoginUser}>
             <Input
               type="email"
               placeholder="Email"

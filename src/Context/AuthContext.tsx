@@ -38,6 +38,16 @@ export const AuthContextProvider = ({ children }) => {
     setUser(response)
   }, [])
 
+  function Login() {
+    localStorage.setItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('email')
+
+    setUser(null)
+
+    console.log('user', user)
+  }
+
   function logoutUser() {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
