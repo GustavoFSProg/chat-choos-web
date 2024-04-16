@@ -7,6 +7,7 @@ import App from '../App'
 import Login from '../pages/Login'
 import MainChat from '../pages/MainChat'
 import Sidebar from './Sidebar'
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -114,32 +115,42 @@ function MessageBox() {
         <div
           style={{
             display: 'flex',
-            marginTop: '-77px',
-            width: '100%',
-            height: '4.5rem',
-            // background: '#0d0d0d',
-            background: '#595959',
             alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <input
-            placeholder="Escreva uma mensagem"
-            type="text"
+          <div
             style={{
               display: 'flex',
-              width: '70%',
-              height: '2.1rem',
-              borderRadius: '15px',
-              background: 'white',
-              marginLeft: '18px',
+              marginTop: '-77px',
+              width: '100%',
+              height: '4.5rem',
+              // background: '#0d0d0d',
+              background: '#595959',
               alignItems: 'center',
-              paddingLeft: '20px',
-              fontSize: '14px',
-              color: 'gray',
-              border: '1px solid gray',
             }}
-          />
-          <div style={{ marginLeft: '14px', color: 'white' }}>Bottom</div>
+          >
+            <input
+              placeholder="Escreva uma mensagem"
+              type="text"
+              style={{
+                display: 'flex',
+                width: '70%',
+                height: '2.1rem',
+                borderRadius: '15px',
+                background: 'white',
+                marginLeft: '18px',
+                alignItems: 'center',
+                paddingLeft: '20px',
+                fontSize: '14px',
+                color: 'gray',
+                border: '1px solid gray',
+              }}
+            />
+            <div style={{ marginLeft: '14px', color: 'white' }}>
+              <InsertEmoticonIcon style={{ fontSize: '28px' }} />
+            </div>
+          </div>
         </div>
       </div>
       {/* </MessageContainer> */}
