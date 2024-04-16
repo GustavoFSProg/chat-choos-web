@@ -74,12 +74,26 @@ function MessageBox() {
           alignItems: 'center',
           marginTop: '11px',
           // marginLeft: '120px',
-          justifyContent: 'center',
+          // justifyContent: 'center',
           background: '#000000',
           flexDirection: 'column',
         }}
       >
-        <h3 style={{ color: 'white' }}>{user.login.name}</h3>
+        <h3
+          style={{
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: '#333333',
+            width: '100%',
+            height: '3rem',
+            marginTop: '-1px',
+            fontSize: '15px',
+          }}
+        >
+          {user.login.name}
+        </h3>
         <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
             MESSAGE BOX
