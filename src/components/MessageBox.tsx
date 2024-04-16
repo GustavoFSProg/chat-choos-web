@@ -118,11 +118,13 @@ function MessageBox() {
             width: '100%',
             height: '4.5rem',
             // background: '#0d0d0d',
-            background: 'darkgray',
+            background: '#595959',
             alignItems: 'center',
           }}
         >
-          <div
+          <input
+            placeholder="Escreva uma mensagem"
+            type="text"
             style={{
               display: 'flex',
               width: '70%',
@@ -134,11 +136,10 @@ function MessageBox() {
               paddingLeft: '20px',
               fontSize: '14px',
               color: 'gray',
+              border: '1px solid gray',
             }}
-          >
-            Escreva uma mensagem
-          </div>
-          <div style={{ marginLeft: '14px' }}>Bottom</div>
+          />
+          <div style={{ marginLeft: '14px', color: 'white' }}>Bottom</div>
         </div>
       </div>
       {/* </MessageContainer> */}
