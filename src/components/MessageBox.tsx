@@ -65,40 +65,81 @@ function MessageBox() {
       }}
     >
       <Sidebar />
-      {/* <MessageContainer> */}
       <div
         style={{
           display: 'flex',
-          width: '53rem',
-          height: '91vh',
-          alignItems: 'center',
-          marginTop: '11px',
+          // width: '100%',
+          // height: '70vh',
+          // alignItems: 'center',
           // marginLeft: '120px',
           // justifyContent: 'center',
-          background: '#000000',
           flexDirection: 'column',
         }}
       >
-        <h3
+        {/* <MessageContainer> */}
+        <div
           style={{
-            color: 'white',
             display: 'flex',
-            justifyContent: 'center',
+            width: '53rem',
+            height: '91vh',
             alignItems: 'center',
-            background: '#333333',
-            width: '100%',
-            height: '3rem',
-            marginTop: '-1px',
-            fontSize: '15px',
+            marginTop: '11px',
+            // marginLeft: '120px',
+            // justifyContent: 'center',
+            background: '#000000',
+            flexDirection: 'column',
           }}
         >
-          {user.login.name}
-        </h3>
-        <h2>
-          <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
-            MESSAGE BOX
-          </Link>
-        </h2>
+          <h3
+            style={{
+              color: 'white',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              background: '#333333',
+              width: '100%',
+              height: '3rem',
+              marginTop: '-1px',
+              fontSize: '15px',
+            }}
+          >
+            {user.login.name}
+          </h3>
+          <h2>
+            <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
+              MESSAGE BOX
+            </Link>
+          </h2>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            marginTop: '-77px',
+            width: '100%',
+            height: '4.5rem',
+            // background: '#0d0d0d',
+            background: 'darkgray',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              width: '70%',
+              height: '2.1rem',
+              borderRadius: '15px',
+              background: 'white',
+              marginLeft: '18px',
+              alignItems: 'center',
+              paddingLeft: '20px',
+              fontSize: '14px',
+              color: 'gray',
+            }}
+          >
+            Escreva uma mensagem
+          </div>
+          <div style={{ marginLeft: '14px' }}>Bottom</div>
+        </div>
       </div>
       {/* </MessageContainer> */}
     </div>
