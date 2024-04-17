@@ -3,11 +3,9 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { AuthContext } from '../Context/AuthContext'
-import App from '../App'
-import Login from '../pages/Login'
-import MainChat from '../pages/MainChat'
 import Sidebar from './Sidebar'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
+import NearMeOutlinedIcon from '@material-ui/icons/NearMeOutlined'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -119,7 +117,7 @@ function MessageBox() {
             justifyContent: 'center',
           }}
         >
-          <div
+          <form
             style={{
               display: 'flex',
               marginTop: '-77px',
@@ -135,7 +133,7 @@ function MessageBox() {
               type="text"
               style={{
                 display: 'flex',
-                width: '70%',
+                width: '82%',
                 height: '2.1rem',
                 borderRadius: '15px',
                 background: 'white',
@@ -150,7 +148,30 @@ function MessageBox() {
             <div style={{ marginLeft: '14px', color: 'white' }}>
               <InsertEmoticonIcon style={{ fontSize: '28px' }} />
             </div>
-          </div>
+            <button
+              style={{
+                background: 'none',
+                marginLeft: '5px',
+                border: 'none',
+                width: '32px',
+                borderRadius: '100%',
+                cursor: 'pointer',
+              }}
+            >
+              <NearMeOutlinedIcon
+                style={{
+                  background: '#9999ff',
+                  fontSize: '20px',
+                  paddingTop: '8px',
+                  paddingLeft: '8px',
+                  paddingRight: '8px',
+                  paddingBottom: '8px',
+                  borderRadius: '100%',
+                  color: 'white',
+                }}
+              />
+            </button>
+          </form>
         </div>
       </div>
       {/* </MessageContainer> */}
