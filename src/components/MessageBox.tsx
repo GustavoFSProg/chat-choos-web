@@ -124,7 +124,7 @@ function MessageBox() {
               width: '100%',
               height: '4.5rem',
               // background: '#0d0d0d',
-              background: '#595959',
+              background: '#333333',
               alignItems: 'center',
             }}
           >
