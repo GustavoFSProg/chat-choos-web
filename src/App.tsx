@@ -1,16 +1,14 @@
 // import { Link } from 'react-router-dom'
 import ChatWindow from './CahtWindow'
 import { AuthContext } from './Context/AuthContext'
-import MessageBox from './components/MessageBox'
 import NavBar from './components/NavBar'
-import Sidebar from './components/Sidebar'
 import { Container, ContainerMiddle } from './styled-app'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import './index.css'
 import { useContext } from 'react'
 
 function App() {
-  const Context = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
+
+  const userEmail = localStorage.getItem('user')
 
   // const { user } = Context
 
@@ -19,6 +17,7 @@ function App() {
   return (
     <div style={{ overflow: 'hidden', color: 'white' }}>
       <NavBar />
+
       <Container>
         {/* <Sidebar /> */}
         <ContainerMiddle>
