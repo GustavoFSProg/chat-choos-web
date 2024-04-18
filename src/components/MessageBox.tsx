@@ -51,6 +51,8 @@ const MessageContainer = styled.div`
 function MessageBox() {
   const { user, logoutUser } = useContext(AuthContext)
 
+  const message = localStorage.getItem('message')
+
   async function getMessages() {
     const { data } = await api.get(`/get-messages/${ID}`)
   }
@@ -119,12 +121,27 @@ function MessageBox() {
           >
             {/* {user.login.name} */}
           </h3>
-          <h2>
+          <p
+            style={{
+              display: 'flex',
+              color: 'white',
+              width: '13rem',
+              borderRadius: '15px',
+              height: '4rem',
+              background: 'green',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+            }}
+          >
+            {message}
+          </p>
+          {/* <h2>
             <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
               MESSAGE BOX
             </Link>
           </h2>
-          <div>mensagems</div>
+          <div>mensagems</div> */}
         </div>
         <div
           style={{

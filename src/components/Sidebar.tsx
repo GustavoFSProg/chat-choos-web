@@ -110,7 +110,13 @@ function Sidebar() {
     setMessages(data)
 
     console.log(data[1].text)
-    alert(data[1].text)
+
+    localStorage.setItem('message', data[0].text)
+
+    // alert(data[1].text)
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return
   }
 
   async function getAllChats() {
@@ -125,6 +131,14 @@ function Sidebar() {
   return (
     <>
       <SidebarContainer>
+        {messages.map((messages: any) => {
+          return (
+            <>
+              <p style={{ color: 'white' }}>{messages.text}</p>
+            </>
+          )
+        })}
+
         {chats.map((items) => {
           return (
             <BoxContainer>
