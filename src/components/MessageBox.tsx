@@ -1,5 +1,5 @@
 // import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { AuthContext } from '../Context/AuthContext'
@@ -50,6 +50,21 @@ const MessageContainer = styled.div`
 `
 function MessageBox() {
   const { user, logoutUser } = useContext(AuthContext)
+
+  async function getMessages() {
+    const { data } = await api.get(`/get-messages/${ID}`)
+  }
+
+  // async function getAllChats() {
+  //   const { data } = await api.get(`/get-all-chats`)
+
+  //   setChats(data)
+  // }
+
+  // useEffect(() => {
+  //   getAllChats()
+  // }, [])
+
   return (
     // <div style={{ display: 'flex', width: '100vw' }}>
     <div
@@ -102,13 +117,14 @@ function MessageBox() {
               fontSize: '15px',
             }}
           >
-            {user.login.name}
+            {/* {user.login.name} */}
           </h3>
           <h2>
             <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
               MESSAGE BOX
             </Link>
           </h2>
+          <div>mensagems</div>
         </div>
         <div
           style={{

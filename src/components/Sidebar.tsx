@@ -1,9 +1,10 @@
 // import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { AuthContext } from '../Context/AuthContext'
 import avatar from '../assets/avatar.jpg'
+import api from '../api'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -100,64 +101,88 @@ const AvatarNameContainer = styled.div`
 
 // poikmnhgt
 function Sidebar() {
-  // const { user, logoutUser } = useContext(AuthContext)
+  const [chats, setChats] = useState([])
+  const [messages, setMessages] = useState([])
+
+  async function getMessages(id) {
+    const { data } = await api.get(`/get-messages/${id}`)
+
+    setMessages(data)
+
+    console.log(data[1].text)
+    alert(data[1].text)
+  }
+
+  async function getAllChats() {
+    const { data } = await api.get(`/get-all-chats`)
+
+    setChats(data)
+  }
+
+  useEffect(() => {
+    getAllChats()
+  }, [])
   return (
     <>
       <SidebarContainer>
-        {/* {user ? (): () } */}
-        <BoxContainer>
-          <AvatarNameContainer>
-            <img src={avatar} width="57" height="57" />
-            <p style={{ marginLeft: '18px', marginTop: '-8px' }}>Gustavo Sohne</p>
-          </AvatarNameContainer>
+        {chats.map((items) => {
+          return (
+            <BoxContainer>
+              <AvatarNameContainer>
+                <img src={avatar} width="57" height="57" />
+                <p style={{ marginLeft: '18px', marginTop: '-8px' }}>Gustavo Sohne</p>
+              </AvatarNameContainer>
 
-          <div
-            style={{
-              display: 'flex',
-              width: '25%',
-              height: '9rem',
-              // background: 'pink',
-              flexDirection: 'column',
-              marginLeft: '-10px',
-              marginTop: '80px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                color: 'white',
-                width: '20%',
-                height: '1.15rem',
-                background: 'green',
-                borderRadius: '100%',
-                justifyContent: 'center',
-                fontSize: '12px',
+              <div
+                style={{
+                  display: 'flex',
+                  width: '25%',
+                  height: '9rem',
+                  // background: 'pink',
+                  flexDirection: 'column',
+                  marginLeft: '-10px',
+                  marginTop: '80px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    color: 'white',
+                    width: '20%',
+                    height: '1.15rem',
+                    background: 'green',
+                    borderRadius: '100%',
+                    justifyContent: 'center',
+                    fontSize: '12px',
 
-                alignItems: 'center',
-                marginLeft: '35px',
-                // marginTop: '60px',
-                paddingTop: '3px',
-                paddingBottom: '3px',
-                paddingLeft: '3px',
-                paddingRight: '3px',
-              }}
-            >
-              1
-            </div>
-            <div
-              style={{
-                width: '70%',
-                // marginLeft: '90px',
-                marginTop: '35px',
-                fontSize: '12px',
-              }}
-            >
-              10/05/2024
-            </div>
-          </div>
-        </BoxContainer>
+                    alignItems: 'center',
+                    marginLeft: '35px',
+                    // marginTop: '60px',
+                    paddingTop: '3px',
+                    paddingBottom: '3px',
+                    paddingLeft: '3px',
+                    paddingRight: '3px',
+                  }}
+                >
+                  1
+                </div>
+                <div
+                  style={{
+                    width: '70%',
+                    // marginLeft: '90px',
+                    marginTop: '35px',
+                    fontSize: '12px',
+                  }}
+                >
+                  10/05/2024
+                </div>
+                <button onClick={() => getMessages(items.id)}>{items.id}</button>
+              </div>
+            </BoxContainer>
+          )
+        })}
 
-        <BoxContainer style={{ marginTop: '5px' }}>
+        {/* <BoxContainer style={{ marginTop: '5px' }}>
           <AvatarNameContainer>
             <img src={avatar} width="57" height="57" />
             <p style={{ marginLeft: '18px', marginTop: '-8px' }}>Sieley M. Coelho</p>
@@ -207,7 +232,7 @@ function Sidebar() {
               10/05/2024
             </div>
           </div>
-        </BoxContainer>
+        </BoxContainer> */}
 
         {/* <h2>
           <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
