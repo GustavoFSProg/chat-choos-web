@@ -135,6 +135,7 @@ function Sidebar() {
           return (
             <>
               <p style={{ color: 'white' }}>{messages.text}</p>
+              {/* <p style={{ color: 'white' }}>Sender ID: {messages.senderId}</p> */}
             </>
           )
         })}
