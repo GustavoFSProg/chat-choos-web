@@ -102,22 +102,22 @@ const AvatarNameContainer = styled.div`
 // poikmnhgt
 function Sidebar() {
   const [chats, setChats] = useState([])
-  const [messages, setMessages] = useState([])
+  // const [messages, setMessages] = useState([])
 
-  async function getMessages(id) {
-    const { data } = await api.get(`/get-messages/${id}`)
+  // async function getMessages(id) {
+  //   const { data } = await api.get(`/get-messages/${id}`)
 
-    setMessages(data)
+  //   setMessages(data)
 
-    console.log(data[1].text)
+  //   console.log(data[1].text)
 
-    localStorage.setItem('message', data[0].text)
+  //   localStorage.setItem('message', data[0].text)
 
-    // alert(data[1].text)
+  //   // alert(data[1].text)
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return
-  }
+  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //   return
+  // }
 
   async function getAllChats() {
     const { data } = await api.get(`/get-all-chats`)
@@ -131,15 +131,15 @@ function Sidebar() {
   return (
     <>
       <SidebarContainer>
-        {messages.map((messages: any) => {
+        {/* {messages.map((messages: any) => {
           return (
             <>
               <p style={{ color: 'white' }}>{messages.text}</p>
-              {/* <p style={{ color: 'white' }}>Sender ID: {messages.senderId}</p> */}
             </>
           )
-        })}
+        })} */}
 
+        {/* <p style={{ color: 'white' }}>Sender ID: {messages.senderId}</p> */}
         {chats.map((items) => {
           return (
             <BoxContainer>
@@ -191,7 +191,9 @@ function Sidebar() {
                 >
                   10/05/2024
                 </div>
-                <button onClick={() => getMessages(items.id)}>{items.id}</button>
+                <button onClick={() => localStorage.setItem('messageId', items.id)}>
+                  {items.id}
+                </button>
               </div>
             </BoxContainer>
           )

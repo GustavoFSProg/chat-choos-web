@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext'
 import Sidebar from './Sidebar'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import NearMeOutlinedIcon from '@material-ui/icons/NearMeOutlined'
+import api from '../api'
 
 const Buttons = styled.button`
   width: 4.8rem;
@@ -50,11 +51,25 @@ const MessageContainer = styled.div`
 `
 function MessageBox() {
   const { user, logoutUser } = useContext(AuthContext)
+  const [messages, setMessages] = useState([])
 
   const message = localStorage.getItem('message')
 
   async function getMessages() {
+    const ID = localStorage.getItem('messageId')
+
     const { data } = await api.get(`/get-messages/${ID}`)
+
+    setMessages(data)
+
+    console.log(data[1].text)
+
+    localStorage.setItem('message', data[0].text)
+
+    // alert(data[1].text)
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return
   }
 
   // async function getAllChats() {
@@ -63,9 +78,9 @@ function MessageBox() {
   //   setChats(data)
   // }
 
-  // useEffect(() => {
-  //   getAllChats()
-  // }, [])
+  useEffect(() => {
+    getMessages()
+  }, [messages])
 
   return (
     // <div style={{ display: 'flex', width: '100vw' }}>
@@ -125,16 +140,22 @@ function MessageBox() {
             style={{
               display: 'flex',
               color: 'white',
-              width: '13rem',
+              width: '18rem',
               borderRadius: '15px',
-              height: '4rem',
+              height: '8rem',
               background: 'green',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '16px',
             }}
           >
-            {message}
+            {messages.map((messages: any) => {
+              return (
+                <>
+                  <p style={{ color: 'white' }}>{messages.text}</p>
+                </>
+              )
+            })}
           </p>
           {/* <h2>
             <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
