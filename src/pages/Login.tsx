@@ -88,7 +88,7 @@ export const ContainerMiddle = styled.div`
 
 function Login() {
   const [email, setEmail] = useState('bruna@gmail.com')
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('1234')
 
   const navigate = useNavigate()
 

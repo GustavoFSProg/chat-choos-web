@@ -53,7 +53,7 @@ function MessageBox() {
   const { user, logoutUser } = useContext(AuthContext)
   const [messages, setMessages] = useState([])
 
-  const message = localStorage.getItem('message')
+  // const message = localStorage.getItem('message')
 
   async function getMessages() {
     const ID = localStorage.getItem('messageId')
@@ -62,20 +62,29 @@ function MessageBox() {
 
     setMessages(data)
 
-    console.log(data[1].text)
+    console.log('DATA:', data[1].text)
+    console.log('messages:', messages)
+    console.log('messages:', messages.senderId)
+    // console.log('MSSS:', messages[0].text)
 
-    localStorage.setItem('message', data[0].text)
+    // localStorage.setItem('message', data[1].text)
+    // localStorage.setItem('message', messages[1].text)
 
-    // alert(data[1].text)
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return
+    return messages
   }
 
-  // async function getAllChats() {
-  //   const { data } = await api.get(`/get-all-chats`)
+  // async function getChats() {
+  //   const ID = localStorage.getItem('messageId')
 
-  //   setChats(data)
+  //   const { data } = await api.get(`/get-chat/${ID}`)
+
+  //   setMessages(data)
+
+  //   console.log(data[1].text)
+
+  //   localStorage.setItem('message', data[0].text)
+
+  //   return
   // }
 
   useEffect(() => {
@@ -149,10 +158,10 @@ function MessageBox() {
               fontSize: '16px',
             }}
           >
-            {messages.map((messages: any) => {
+            {messages.map((item: any) => {
               return (
                 <>
-                  <p style={{ color: 'white' }}>{messages.text}</p>
+                  <p style={{ color: 'white' }}>{item.text}</p>
                 </>
               )
             })}
