@@ -12,7 +12,8 @@ export const ChatContextProvider = ({ children, user }) => {
   // const { user, setUser } = useContext(AuthContext)
 
   async function getAllChats() {
-    const { data } = await api.get(`/get-all-chats`)
+    const ID = localStorage.getItem('user')
+    const { data } = await api.get(`/get-all-user-chats/${ID}`)
 
     setUseChats(data)
     // setUser(data)
