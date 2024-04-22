@@ -4,7 +4,7 @@ import { Container, ContainerMiddle } from '../styled-app'
 import { useContext } from 'react'
 import { ChatContext } from '../Context/ChatContext'
 
-function Chats() {
+function UserChat() {
   const { userChats, user, isLoading, userChatsError } = useContext(ChatContext)
 
   console.log('userChats', userChats)
@@ -12,13 +12,11 @@ function Chats() {
     <>
       <div style={{ display: 'flex', width: '50vw' }}>
         <Container>
-          <ContainerMiddle>
-            <h2>MainChat</h2>
-          </ContainerMiddle>
+          <h2 style={{ color: 'green' }}>User Chat</h2>
         </Container>
       </div>
     </>
   )
 }
 
-export default Chats
+export default UserChat

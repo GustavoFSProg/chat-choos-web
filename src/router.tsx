@@ -12,7 +12,7 @@ import { AuthContext, AuthContextProvider } from './Context/AuthContext'
 import { useContext } from 'react'
 import ChatWindow from './CahtWindow'
 import { ChatContextProvider } from './Context/ChatContext'
-import Chats from './pages/Chats'
+import Chats from './pages/Chat'
 
 function Routers() {
   const { user } = useContext(AuthContext)

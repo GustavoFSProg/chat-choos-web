@@ -18,15 +18,14 @@ function App() {
   return (
     <div style={{ overflow: 'hidden', color: 'white' }}>
       <NavBar />
-      <ChatContextProvider user={user}>
-        <Container>
-          {/* <Sidebar /> */}
-          <ContainerMiddle>
-            {/* <MessageBox /> */}
-            <h1>Chat App</h1>
-          </ContainerMiddle>
-        </Container>
-      </ChatContextProvider>
+
+      <Container>
+        {/* <Sidebar /> */}
+        <ContainerMiddle>
+          {/* <MessageBox /> */}
+          <h1>Chat App</h1>
+        </ContainerMiddle>
+      </Container>
     </div>
   )
 }
