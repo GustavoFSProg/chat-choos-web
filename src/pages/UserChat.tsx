@@ -4,7 +4,7 @@ import { Container, ContainerMiddle } from '../styled-app'
 import { useContext } from 'react'
 import { ChatContext } from '../Context/ChatContext'
 
-function UserChat() {
+function UserChat(chat, users) {
   const { userChats, user, isLoading, userChatsError } = useContext(ChatContext)
 
   console.log('userChats', userChats)

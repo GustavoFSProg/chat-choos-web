@@ -102,6 +102,7 @@ const AvatarNameContainer = styled.div`
 // poikmnhgt
 function Sidebar() {
   const [chats, setChats] = useState([])
+  const [userChat, setUserChat] = useState([])
   // const [messages, setMessages] = useState([])
 
   // async function getMessages(id) {
@@ -118,6 +119,7 @@ function Sidebar() {
   //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   //   return
   // }
+  // /get-all-user-chats/:id
 
   async function getAllChats() {
     const { data } = await api.get(`/get-all-chats`)
@@ -125,8 +127,17 @@ function Sidebar() {
     setChats(data)
   }
 
+  async function getOneChat() {
+    const { data } = await api.get(`/get-chat`)
+
+    setUserChat(data)
+
+    console.log(`Data user:`, data)
+  }
+
   useEffect(() => {
     getAllChats()
+    getOneChat()
   }, [])
   return (
     <>

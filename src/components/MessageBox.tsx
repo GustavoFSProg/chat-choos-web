@@ -61,6 +61,9 @@ function MessageBox() {
     const { data } = await api.get(`/get-messages/${ID}`)
 
     setMessages(data)
+    // if (data[0].senderId !== ID) {
+    //   return alert('User 1', data[0].senderId)
+    // }
 
     console.log('DATA:', data[1].text)
     console.log('messages:', messages)
@@ -70,7 +73,7 @@ function MessageBox() {
     // localStorage.setItem('message', data[1].text)
     // localStorage.setItem('message', messages[1].text)
 
-    return messages
+    return null
   }
 
   // async function getChats() {
@@ -89,7 +92,9 @@ function MessageBox() {
 
   useEffect(() => {
     getMessages()
-  }, [messages])
+
+    return () => console.log('Deu!!')
+  }, [])
 
   return (
     // <div style={{ display: 'flex', width: '100vw' }}>
